@@ -1,0 +1,37 @@
+#options div {
+    width: 30%;
+    margin: 15px auto 0px;
+    text-align: center;
+    background-color: rgb(13, 72, 201);
+    border: 2px solid black;
+    float: left;
+}
+
+#buttons button {
+    width: 15%;
+    border: 2px solid black;
+    float: left;
+    text-align: center;
+    margin-left: 10%;
+
+}
+
+
+#results {
+    clear: both;
+    display: block;
+    background-color: rgb(205, 235, 233);
+    width: 90%;
+    height: 100px;
+}
+
+#results div {
+    display: inline-block;
+    margin-top: 35px;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+#min {
+    margin-left: 45%;
+}
