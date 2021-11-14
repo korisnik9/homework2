@@ -110,6 +110,16 @@ function delay(func, wait) {
 
 // CHALLENGE 7
 function rollCall(names) {
+  let number = 0;
+  function call() {
+    if (number < names.length){
+      console.log(names[number]);
+      number++;
+    }else {
+      console.log("Everyone accounted for");
+    }
+  }
+  return call;
 
 }
 
@@ -124,6 +134,7 @@ function rollCall(names) {
 // CHALLENGE 8
 function saveOutput(func, magicWord) {
 
+
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -136,6 +147,12 @@ function saveOutput(func, magicWord) {
 
 // CHALLENGE 9
 function cycleIterator(array) {
+  let number = 0;
+  function cycle() {
+    number++;
+    return array[(number - 1) % array.length];
+  }
+  return cycle;
 
 }
 
@@ -150,7 +167,10 @@ function cycleIterator(array) {
 
 // CHALLENGE 10
 function defineFirstArg(func, arg) {
-
+  function inFunc(e) {
+    return func(arg,e);
+  }
+  return inFunc;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -161,7 +181,13 @@ function defineFirstArg(func, arg) {
 
 // CHALLENGE 11
 function dateStamp(func) {
-
+  let time = {};
+  time.date = new Date();
+  function timeStamp(e){
+    time.output = func(e);
+    return time;
+  } 
+  return timeStamp;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -184,7 +210,8 @@ function censor() {
 
 // CHALLENGE 13
 function createSecretHolder(secret) {
-
+  let number = secret;
+  
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -196,7 +223,12 @@ function createSecretHolder(secret) {
 
 // CHALLENGE 14
 function callTimes() {
-
+  let number = 0;
+  function func() {
+    number++;
+    return number;
+  }
+  return func;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -210,7 +242,18 @@ function callTimes() {
 
 // CHALLENGE 15
 function russianRoulette(num) {
-
+  let number = 0;
+  function func() {
+    number++;
+    if (number < num) {
+      return "click";
+    } else if(number === num){
+      return "bang";
+    }else{
+      return "reload to play again";
+    }
+  }
+  return func;
 }
 
 // /*** Uncomment these to check your work! ***/
