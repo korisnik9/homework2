@@ -52,7 +52,10 @@ const jasCounter = outer();
 
 
 function addByX(x) {
-
+  function func(e) {
+    return x + e;
+  }
+  return func;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -72,6 +75,16 @@ function addByX(x) {
 
 // CHALLENGE 4
 function once(func) {
+  let number = 0;
+  let result = 0;
+  function funct(e) {
+    if(number === 0) {
+      result = func(num);
+      number++;
+    }
+    return result;
+  }
+  return funct;
 	
 }
 
@@ -133,7 +146,16 @@ function rollCall(names) {
 
 // CHALLENGE 8
 function saveOutput(func, magicWord) {
-
+  let e = {};
+  function funct(number) {
+    if (number !== magicWord) {
+      e[number] = func(num);
+      return e[number];
+    }else{
+      return e;
+    }
+  }
+  return funct;
 
 }
 
@@ -211,7 +233,14 @@ function censor() {
 // CHALLENGE 13
 function createSecretHolder(secret) {
   let number = secret;
-  
+  let obj = {
+    getSecret() {
+      return number;
+    }, setSecret(e) {
+      number = e;
+    },
+  };
+  return obj;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -282,7 +311,10 @@ function average() {
 
 // CHALLENGE 17
 function makeFuncTester(arrOfTests) {
-  
+  function func(e) {
+    return arrOfTests.every((couple) => e(couple[0]) === couple[1]);
+  }
+  return func;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -299,7 +331,20 @@ function makeFuncTester(arrOfTests) {
 
 // CHALLENGE 18
 function makeHistory(limit) {
-
+  let arr = [];
+  function func(e) {
+    if(e !== "undo"){
+      if(arr.length >= limit) 
+      arr.shift(); arr.push(e);
+      return e + "done";
+    }else{
+      if (arr.length === 0) 
+      return "nothing to do";
+      let remove = arr.pop();
+      return remove + " undone";
+    }
+  }
+  return func;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -316,6 +361,27 @@ function makeHistory(limit) {
 
 // CHALLENGE 19
 function blackjack(array) {
+  let dealerCount = 0;
+  let playerCount = 0;
+  function dealer(x,y) {
+    let total = x + y;
+    function player(){
+      if(total === "bust") 
+      return "you are done!";
+      dealerCount++;
+      playerCount++;
+      if(playerCount === 1) 
+      return total;
+      total += array[dealerCount - 2];
+      if(total > 21) {
+        total = "bust";
+        dealerCount--;
+      }
+      return total;
+    }
+    return player;
+  }
+  return dealer;
 
 }
 

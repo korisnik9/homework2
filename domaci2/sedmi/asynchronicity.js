@@ -79,7 +79,16 @@ function sayHowdy() {
   /* CHALLENGE 7 */
   
   function delayCounter(target, wait) {
-  
+    function func() {
+      let num = 1;
+      let e = setInterval(() => {
+        e++;
+        if (e > target){
+          clearInterval(e);
+        }
+      }, wait);
+    }
+    return func;
   }
   
   // UNCOMMENT THESE TO TEST YOUR WORK!
@@ -123,7 +132,24 @@ function sayHowdy() {
   /* CHALLENGE 10 */
   
   function debounce(callback, interval) {
-    // ADD CODE HERE
+    let number = 0;
+    let ran = false;
+    let e = undefined;
+    function func() {
+      if(!ran) {
+        e = setInterval(() => number++,1);
+        ran = true;
+        return callback();
+      }else{
+        if (number < interval) {
+          number = 0;
+          clearInterval(e);
+          e = setInterval(() => number++,1);
+          return callback();
+        }
+      }
+    }
+    return func();
   }
   
   // UNCOMMENT THESE TO TEST YOUR WORK!

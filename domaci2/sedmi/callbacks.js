@@ -114,7 +114,7 @@ function objOfMatches(arr, arr1, callback) {
 
 // Challenge 10
 function multiMap(arrVals, arrCallbacks) {
-	return arrVals.reduce((a))
+	
 }
 
 // console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
@@ -206,7 +206,7 @@ console.log(goodKeys(sunny, startsWithBird)); // should log: ['charlie', 'dee']
 
 // Challenge 17
 function commutative(func1, func2, value) {
-
+  
 }
 
 // /*** Uncomment these to check your work! ***/
